@@ -1,4 +1,4 @@
-SELECT
+SELECT TOP(20)
     city,
     first_name,
     last_name
