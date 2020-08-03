@@ -12,7 +12,7 @@ namespace Bike_Shop
         {
             // Integrated Security=SSPI is required for Windows Authentication login.
             string cs = @"Server=localhost\SQLEXPRESS;Database=bikeshop;Trusted_Connection=True;Integrated Security=SSPI;";
-            string script = File.ReadAllText(@"C:\Users\Owner.Owner-PC\source\repos\Bike Shop\customer_list.sql");
+            string script = File.ReadAllText(@"C:\Users\Owner.Owner-PC\source\repos\Bike Shop\most_valuable_customers.sql");
             SqlConnection conn = new SqlConnection(cs);
             conn.Open();
             SqlCommand command = new SqlCommand(script, conn);
@@ -20,7 +20,7 @@ namespace Bike_Shop
             SqlDataReader dataReader = command.ExecuteReader();
             while (dataReader.Read())
             {
-                Console.WriteLine(dataReader.GetValue(0) + " - " + dataReader.GetValue(1) + " - " + dataReader.GetValue(2));
+                Console.WriteLine(dataReader.GetValue(0) + "," + dataReader.GetValue(1) + "," + dataReader.GetValue(2) + ","+ dataReader.GetValue(3) + ","+dataReader.GetValue(4));
             }
             dataReader.Close();
             command.Dispose();

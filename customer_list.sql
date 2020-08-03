@@ -1,9 +1,10 @@
-SELECT TOP(20)
-    city,
-    first_name,
-    last_name
+SELECT
+    p.product_name,
+    p.list_price,
+    c.category_name
 FROM
-    sales.customers
+    production.products as p
+inner join production.categories c 
+on c.category_id = p.category_id
 ORDER BY
-    city,
-    first_name;
+    product_name DESC;
